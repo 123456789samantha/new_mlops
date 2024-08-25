@@ -1,20 +1,20 @@
-# Use a base image with Python pre-installed
+# Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Upgrade pip, setuptools, and wheel
-RUN pip install --upgrade pip setuptools wheel
-
 # Copy the requirements file into the container
-COPY requirements.txt .
+COPY requirements.txt /app/requirements.txt
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Copy the rest of your application code into the container
-COPY . /app/
+# Copy the rest of the application code into the container
+COPY . /app
 
-# Command to run the application
-CMD ["streamlit", "run", "app.py"]
+# Set environment variables, if any
+ENV FLASK_APP=app.py
+
+# Run the application
+CMD ["flask", "run"]
