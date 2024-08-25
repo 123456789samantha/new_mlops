@@ -1,20 +1,20 @@
-# Use the official Python image
-FROM python:3.8-slim
+# Use a base image with Python pre-installed
+FROM python:3.9-slim
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the requirements file
+# Upgrade pip, setuptools, and wheel
+RUN pip install --upgrade pip setuptools wheel
+
+# Copy the requirements file into the container
 COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application files
-COPY . .
+# Copy the rest of your application code into the container
+COPY . /app/
 
-# Expose port 5000 for the Flask app
-EXPOSE 5000
-
-# Command to run the Flask app
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Command to run the application
+CMD ["streamlit", "run", "app.py"]
