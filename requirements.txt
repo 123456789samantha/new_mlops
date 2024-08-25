@@ -10,7 +10,6 @@ seaborn==0.11.2
 scipy==1.7.1
 
 # Additional dependencies used in PyCaret for various functionalities
-catboost==1.0.6
 xgboost==1.5.0
 lightgbm==3.3.5
 tensorflow==2.11.0
@@ -18,10 +17,3 @@ torch==1.13.1
 imbalanced-learn==0.9.1
 shap==0.41.0
 mlflow==1.31.0
-
-# Flask for web application
-Flask==1.1.1
-gunicorn==19.9.0
-Jinja2==2.10.1
-itsdangerous==1.1.0
-certifi==2019.11.28
