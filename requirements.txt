@@ -1,0 +1,19 @@
+# Web framework
+Flask==1.1.1
+
+# WSGI server for production
+gunicorn==19.9.0
+
+# Template engine
+Jinja2==2.10.1
+
+# Security utilities
+itsdangerous==1.1.0
+
+# Data science and machine learning libraries
+pycaret==2.3.10
+catboost==1.0.6
+
+# General-purpose libraries
+certifi==2019.11.28
+
